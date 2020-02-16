@@ -60,7 +60,7 @@ void OnTick() {
    if(((mom1 > 100) && (mom2 > 100)) && (FastMA2 <= SlowMA2 && FastMA1 > SlowMA1)) { //買いシグナル
       //ポジションが6つ未満であれば買い注文
       if(pos < 6){
-         Ticket = OrderSend(_Symbol, OP_BUY, Lots, Ask, Slippage, Ask-SLPoint*_Point, Ask+TPPoint*_Point, NULL, Magic, 0, clrBlue);
+         OrderSend(_Symbol, OP_BUY, Lots, Ask, Slippage, Ask-SLPoint*_Point, Ask+TPPoint*_Point, NULL, Magic, 0, clrBlue);
       } 
   }
   
@@ -68,7 +68,7 @@ void OnTick() {
    if(((mom1 < 100) && (mom2 < 100)) && (FastMA2 >= SlowMA2 && FastMA1 < SlowMA1)) { //売りシグナル
       //ポジションが6つ未満であれば売り注文
       if(pos < 6){
-         Ticket = OrderSend(_Symbol, OP_SELL, Lots, Bid, Slippage, Bid+SLPoint*_Point, Bid-TPPoint*_Point, NULL, Magic, 0, clrRed);
+         OrderSend(_Symbol, OP_SELL, Lots, Bid, Slippage, Bid+SLPoint*_Point, Bid-TPPoint*_Point, NULL, Magic, 0, clrRed);
       } 
    }
  
